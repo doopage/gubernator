@@ -23,9 +23,6 @@ except ImportError:  # for pip <= 9.0.3
 from setuptools import setup, find_packages
 import platform
 
-with open('version', 'r') as version_file:
-    version = version_file.readline().strip()
-
 if platform.python_version_tuple()[0] == '2':
     reqs = parse_requirements('requirements-py2.txt', session='')
 else:
@@ -35,7 +32,7 @@ requirements = [str(r.req) for r in reqs]
 
 setup(
     name='gubernator',
-    version='0.1.0',
+    version='v1.0.0-rc.8',
     description="Python client for gubernator",
     author="Derrick J. Wippler",
     author_email='thrawn01@gmail.com',
