@@ -29,7 +29,7 @@ else:
     reqs = parse_requirements('requirements-py3.txt', session='')
 
 # Generator must be converted to list, or we will only have one chance to read each element, meaning that the first requirement will be skipped.
-requirements = list(reqs)
+reqs = list(reqs)
 try:
     requirements = [str(r.req) for r in reqs]
 except:
