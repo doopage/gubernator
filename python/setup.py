@@ -28,7 +28,12 @@ if platform.python_version_tuple()[0] == '2':
 else:
     reqs = parse_requirements('requirements-py3.txt', session='')
 
-requirements = [str(r.req) for r in reqs]
+# Generator must be converted to list, or we will only have one chance to read each element, meaning that the first requirement will be skipped.
+requirements = list(reqs)
+try:
+    requirements = [str(r.req) for r in reqs]
+except:
+    requirements = [str(r.requirement) for r in reqs]
 
 setup(
     name='gubernator',
